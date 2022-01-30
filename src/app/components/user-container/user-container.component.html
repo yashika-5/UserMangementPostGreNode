@@ -1,3 +1,4 @@
-<app-user-list></app-user-list>
 <ng-container *ngIf="(editedUser$ | async); let editUser">
+    <app-user-edit  [user]="$any(editUser)"></app-user-edit>
 </ng-container>
+<app-user-list></app-user-list>

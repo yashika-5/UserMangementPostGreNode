@@ -3,7 +3,7 @@ import { UserService } from 'src/app/shared/service/user.service';
 import { UserStore } from '../../store/user.store';
 
 @Component({
-  selector: 'app-user-container-component',
+  selector: 'app-user-container',
   templateUrl: './user-container.component.html',
   styleUrls: ['./user-container.component.css'],
   providers: [UserStore],
