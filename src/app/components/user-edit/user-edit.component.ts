@@ -37,6 +37,13 @@ export class UserEditComponent implements OnInit {
   userEdited() {
     this.userStore.setEditedUser(this.user);
   }
-  addUpdateUser(){}
+
+  cancel() {
+    this.userStore.cancelEditUser();
+  }
+
+  save() {
+    this.userStore.saveEditUser();
+  }
 
 }

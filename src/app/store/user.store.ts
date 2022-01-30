@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { tap, withLatestFrom } from 'rxjs/operators';
 import { User } from '../model/user.model';
 
@@ -20,6 +20,10 @@ const defaultState: UserState = {
 export class UserStore 
 extends ComponentStore<UserState> 
 implements OnDestroy {
+
+  private _saveEditUser$ = new Subject<void>();
+
+
   constructor() {
     super(defaultState);
   }
@@ -56,13 +60,25 @@ implements OnDestroy {
             !id && id !== 0
               ? undefined
               : people.find((user) => user.id === id);
-          console.log(userToEdit)
           this.setEditedUser({ ...userToEdit });
         })
       )
   );
 
-
   ngOnDestroy() {
+  }
+
+
+  cancelEditUser() {
+    this.clearEditedUser();
+  }
+
+  private clearEditedUser() {
+    this.setEditorId(undefined);
+    this.setEditedUser(undefined);
+  }
+
+  saveEditUser() {
+    this._saveEditUser$.next();
   }
 }

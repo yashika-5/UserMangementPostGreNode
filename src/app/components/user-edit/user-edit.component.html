@@ -1,31 +1,24 @@
 <section class="new-user" fxLayoutAlign="center">
-    <form [formGroup]="userForm" (ngSubmit)="addUpdateUser()">
+    <form [formGroup]="userForm" (ngSubmit)="save()">
         <mat-card fxFlex.xs="100%" fxFlex="400px">
            
             <mat-card-content fxLayoutAlign="center" fxLayout="column">
-                <table class="example-full-width" cellspacing="0">
-                    
                    <mat-form-field  class="example-full-width" appearance="fill">
                       <mat-label>First name</mat-label>
-                      <input formControlName="firstName" matInput  required>
+                      <input formControlName="firstName" matInput>
                     </mat-form-field>
                    <mat-form-field class="example-full-width" appearance="fill">
                       <mat-label>Last Name</mat-label>
-                      <input formControlName="lastName" matInput  required>
+                      <input formControlName="lastName" matInput>
                    </mat-form-field>
                
-                </table>
-                  
                   <mat-form-field appearance="fill">
                     <mat-label>Email</mat-label>
                     <input 
                       matInput
-                      
                       type="email"
                       formControlName="email"
-                      required
                       placeholder="Email.."
-                      
                      >
                      <mat-error *ngIf="userForm.get('email')?.invalid">Please enter valid email format.</mat-error> 
 
@@ -36,9 +29,7 @@
                       matInput
                       type="number"
                       formControlName="mobile"
-                      required
                       placeholder="Mobile.."
-                      
                      >
                      <mat-error *ngIf="userForm.get('mobile')?.invalid">Please enter 10-digit mobile number.</mat-error> 
                   </mat-form-field>
@@ -49,7 +40,6 @@
                       matInput
                       type="text"
                       formControlName="location"
-                      required
                       placeholder="Location.."
                      >
                      <mat-error *ngIf="userForm.get('location')?.invalid">Please enter valid location name.</mat-error> 
@@ -59,7 +49,8 @@
             <mat-card-actions fxLayoutAlign="center">
                 <!-- <button *ngIf="mode=='create'" mat-raised-button type="submit" color="primary">Add</button> -->
                 <!-- <button *ngIf="mode=='edit'" mat-raised-button type="submit" color="primary">Edit</button> -->
-                <button mat-raised-button type="submit" color="primary">Edit</button>
+                <button mat-raised-button type="submit" color="primary">Done</button>
+                <button mat-raised-button type="button" color="warn" (click)="cancel()">Close</button>
             </mat-card-actions>
         </mat-card>
     </form>
