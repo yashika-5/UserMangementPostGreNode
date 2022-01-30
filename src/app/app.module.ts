@@ -11,6 +11,8 @@ import { MaterialModule } from './shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from "@angular/common/http";
+import { UserContainerComponentComponent } from './components/user-container-component/user-container-component.component';
+import { UserListComponentComponent } from './components/user-list-component/user-list-component.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { HttpClientModule } from "@angular/common/http";
     AppComponent,
     UserListComponent,
     CreateUserComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserContainerComponentComponent,
+    UserListComponentComponent
   ],
   imports: [
     BrowserModule,
