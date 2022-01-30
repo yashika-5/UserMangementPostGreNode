@@ -4,11 +4,12 @@ import { UserStore } from '../../store/user.store';
 
 @Component({
   selector: 'app-user-container-component',
-  templateUrl: './user-container-component.component.html',
-  styleUrls: ['./user-container-component.component.css'],
+  templateUrl: './user-container.component.html',
+  styleUrls: ['./user-container.component.css'],
   providers: [UserStore],
 })
-export class UserContainerComponentComponent implements OnInit {
+export class UserContainerComponent implements OnInit {
+  editedUser$ = this.userStore.editedUser$;
 
   constructor(
     private readonly userStore: UserStore,
